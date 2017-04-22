@@ -1,1 +1,1 @@
-web: with_jdwp java -jar target/solit-birthday.jar
+web: java -jar target/solit-birthday.jar
