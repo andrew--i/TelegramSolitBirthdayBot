@@ -1,5 +1,6 @@
 package org.ai;
 
+import org.slf4j.LoggerFactory;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -11,6 +12,9 @@ import static spark.Spark.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        LoggerFactory.getLogger(Main.class).debug("Hello World!!!");
+
 
         port(Integer.valueOf(System.getenv("PORT")));
         get("/bot", new TelegramBotHandler());
