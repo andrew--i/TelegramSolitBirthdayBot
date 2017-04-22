@@ -23,6 +23,7 @@ public class Main {
         get("/test", new Test());
 
         post("/kursBot", new KursBot());
+        get("/kursBot", (req, res) -> "ok");
 
     }
 

@@ -36,7 +36,7 @@ public class KursBot implements Route {
 
     public KursBot() throws IOException {
         Properties properties = new Properties();
-        properties.load(new FileInputStream("local.properties"));
+        properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("local.properties"));
         String token = properties.getProperty("BOT_TOKEN");
         bot = TelegramBotAdapter.buildDebug(token);
     }
