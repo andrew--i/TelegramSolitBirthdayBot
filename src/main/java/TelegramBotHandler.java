@@ -14,8 +14,8 @@ public class TelegramBotHandler implements Route {
     public Object handle(Request request, Response response) throws Exception {
         Update update = BotUtils.parseUpdate(request.body());
         Message message = update.message();
-        LOGGER.info("message Id: {}", message.messageId());
-        LOGGER.info("chat Id: {}", message.chat().id());
+        LOGGER.debug("message Id: {}", message.messageId());
+        LOGGER.debug("chat Id: {}", message.chat().id());
         return "ok";
     }
 }
