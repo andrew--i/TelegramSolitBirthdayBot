@@ -9,6 +9,8 @@ import com.pengrad.telegrambot.TelegramBotAdapter;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.ReplyKeyboardMarkup;
 import com.pengrad.telegrambot.request.SendMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -28,6 +30,8 @@ import java.util.Properties;
 
 public class KursBot implements Route {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(KursBot.class);
+
     private final TelegramBot bot;
 
     public final String BUTTON_CB = "ЦБ";
@@ -43,10 +47,11 @@ public class KursBot implements Route {
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
-        System.out.println("org.ai.KursBot handle: " + request);
+        LOGGER.debug("Handle request: " + request);
 
         Update update = new Gson().fromJson(request.body(), Update.class);
         Long chatId = update.message().chat().id();
+        LOGGER.debug("Chat ID: {}", chatId);
         String text = update.message().text();
         if (text == null) return "empty message?";
         String message;
