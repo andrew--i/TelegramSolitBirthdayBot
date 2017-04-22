@@ -74,7 +74,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>org.ai.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
